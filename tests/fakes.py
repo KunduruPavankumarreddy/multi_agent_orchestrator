@@ -23,3 +23,12 @@ class FakeSearchProvider:
                 content=f"Evidence retrieved for {query}",
             )
         ]
+        
+class FakeLLMProvider:
+    def __init__(self, response: str) -> None:
+        self.response = response
+        self.prompts: list[str] = []
+
+    async def generate(self, prompt: str) -> str:
+        self.prompts.append(prompt)
+        return self.response

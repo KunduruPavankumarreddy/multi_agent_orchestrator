@@ -23,7 +23,8 @@ class AnalysisInput(BaseModel):
 
 class Finding(BaseModel):
     topic: str
-    fact: str
+    claim: str
+    evidence: str
     source_urls: list[str]
 
 

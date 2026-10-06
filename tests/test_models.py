@@ -74,7 +74,8 @@ def test_writing_input_contains_analysis_and_sources():
         findings=[
             {
                 "topic": "Products",
-                "fact": "Example product",
+                "claim": "Example product exists.",
+                "evidence": "The source describes Example product.",
                 "source_urls": ["https://example.com"],
             }
         ]
@@ -94,4 +95,5 @@ def test_writing_input_contains_analysis_and_sources():
 
     assert data.request.company == "OpenAI"
     assert len(data.analysis.findings) == 1
+    assert data.analysis.findings[0].claim == "Example product exists."
     assert data.sources[0].url == "https://example.com"
