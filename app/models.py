@@ -16,6 +16,11 @@ class RetrievedData(BaseModel):
     sources: list[Source]
 
 
+class AnalysisInput(BaseModel):
+    request: ResearchRequest
+    retrieved_data: RetrievedData
+
+
 class Finding(BaseModel):
     topic: str
     fact: str
@@ -26,5 +31,11 @@ class AnalysisResult(BaseModel):
     findings: list[Finding]
 
 
+class WritingInput(BaseModel):
+    request: ResearchRequest
+    analysis: AnalysisResult
+    sources: list[Source]
+
+
 class WriterResult(BaseModel):
-    answer: str 
+    answer: str
